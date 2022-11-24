@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 celery -A Mailganer worker -l INFO --without-gossip
 
-4)Запустити сервер коммандой:
+4)Запустите сервер коммандой:
 
 Python manage.py runserver
 
