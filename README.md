@@ -1,6 +1,6 @@
 Развертывание 
 В качестве брокера использован Redis
-1)Выполните комманду:
+1)Выполните команду:
 
 git clone ‘https://github.com/OlegYhay/Mailganer_test.git’
 
@@ -8,11 +8,11 @@ git clone ‘https://github.com/OlegYhay/Mailganer_test.git’
 
 pip install -r requirements.txt
 
-3)Находясь в Mailganer, запустите работника celery коммандой:
+3)Находясь в Mailganer, запустите работника celery командой:
 
 celery -A Mailganer worker -l INFO --without-gossip
 
-4)Запустите сервер коммандой:
+4)Запустите сервер командой:
 
 Python manage.py runserver
 
