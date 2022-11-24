@@ -1,0 +1,36 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h4 class="text-center">Рассылки</h4>
+<a href="{% url 'mailings_add' %}" class="btn btn-success">Добавить</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Название</th>
+        <th scope="col">Дата начала рассылки</th>
+        <th scope="col">Кол-во подписчиков</th>
+        <th scope="col">Статус</th>
+        <th scope="col">Редактировать</th>
+        <th scope="col">Удалить</th>
+        <th scope="col">Статистика</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for mailing in mailings %}
+    <tr>
+        <th scope="row">{{mailing.id}}</th>
+        <td>{{mailing.name}}</td>
+        <td>{{mailing.mailing_date}}</td>
+        <td>{{mailing.subscribers.count}}</td>
+        <td>{{mailing.status}}</td>
+        <td><a href="{% url 'mailings_update' pk=mailing.id %}" class="btn btn-warning">Редактировать</a></td>
+        <td><a href="{% url 'mailings_delete' pk=mailing.id %}" class="btn btn-danger">Удалить</a></td>
+        {% if mailing.status == 'DONE' %}
+        <td><a href="{% url 'message_mailings' pk=mailing.id %}" class="btn btn-primary">Статистика открытия писем</a>
+            {%endif%}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content%}

@@ -1,0 +1,11 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h4>Редактирование данных(Для даты придерживайтесь установленного формата!)</h4>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="Сохранить"/>
+    <a href='{% url "mailings_page" %}' class="btn btn-danger" type="submit">Отмена</a>
+    <p></p>
+</form>
+{% endblock content%}

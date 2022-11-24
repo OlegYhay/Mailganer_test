@@ -1,0 +1,25 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h4 class="text-center">Информация по сообщениям</h4>
+<a href="{% url 'mailings_add' %}" class="btn btn-success">Добавить</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">ФИО</th>
+        <th scope="col">Email</th>
+        <th scope="col">Статус</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for message in messages %}
+    <tr>
+        <td>{{message.subscriber.id}}</td>
+        <td>{{message.subscriber.name}}</td>
+        <td>{{message.subscriber.email_address}}</td>
+        <td>{{message.status}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content%}

@@ -1,0 +1,17 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h4>Новый подписчик</h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">ФИО</label>
+        {{form.name}}<br/>
+
+        <label class="form-label">Email</label>
+        {{form.email_address}}<br/>
+    </div>
+    Дата рождения:{{ form.date_of_birth }}<br/>
+    <input class="btn btn-primary" type="submit" value="Сохранить" />
+    <a href='{% url "subsribers_page" %}' class="btn btn-danger" type="submit">Отмена</a>
+</form>
+{% endblock content%}

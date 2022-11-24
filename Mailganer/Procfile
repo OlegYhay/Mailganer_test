@@ -1,0 +1,2 @@
+web: sh -c 'cd Mailganer && gunicorn Mailganer.wsgi --log-file=-'
+

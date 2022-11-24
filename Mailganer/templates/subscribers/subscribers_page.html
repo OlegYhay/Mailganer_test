@@ -1,0 +1,29 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h4 class="text-center">Подписчики</h4>
+<a href="{% url 'subsribers_add' %}" class="btn btn-success" >Добавить</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Почта</th>
+        <th scope="col">Дата рождения</th>
+        <th scope="col">Редактировать</th>
+        <th scope="col">Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for subscriber in subscribers %}
+        <tr>
+            <th scope="row">{{subscriber.id}}</th>
+            <td>{{subscriber.name}}</td>
+            <td>{{subscriber.email_address}}</td>
+            <td>{{subscriber.date_of_birth}}</td>
+            <td><a href="{% url 'subscribers_update' pk=subscriber.pk %}" class="btn btn-warning">Редактировать</a></td>
+            <td><a href="{% url 'subscribers_delete' pk=subscriber.pk %}" class="btn btn-danger">Удалить</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content%}

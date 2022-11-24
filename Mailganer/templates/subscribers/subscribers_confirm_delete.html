@@ -1,0 +1,9 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h4 xmlns="http://www.w3.org/1999/html">Удалить ?</h4>
+<form method="post">
+    {% csrf_token %}
+    <input class="btn btn-primary" type="submit" value="Удалить" />
+    <a href='{% url "subsribers_page" %}' class="btn btn-danger" type="submit" value="Отмена" />Отмена</a>
+</form>
+{% endblock content%}
