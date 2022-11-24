@@ -8,7 +8,7 @@ git clone ‘https://github.com/OlegYhay/Mailganer_test.git’
 
 pip install -r requirements.txt
 
-3)Запустите работника celery коммандой:
+3)Находясь в Mailganer, запустите работника celery коммандой:
 
 celery -A Mailganer worker -l INFO --without-gossip
 
